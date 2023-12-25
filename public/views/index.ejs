@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryGPT</title>
+    <!-- Bootstrap CSS and custom styles -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="container" bis_skin_checked="1">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <div class="col-md-3 mb-2 mb-md-0" bis_skin_checked="1">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <img src="../images/Logo(white).png" alt="">
+            </a>
+          </div>
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-3 headertext">Portfolio</a></li>
+            <li><a href="#" class="nav-link px-3 headertext">Github</a></li>
+            <li><a href="#" class="nav-link px-3 headertext">LinkedIn</a></li>
+          </ul>
+        </header>
+    </div>
+
+    <!-- Form and Response Area -->
+    <div class="container-inputs">
+        <h1>StoryGPT</h1>
+        <h3>Emoji Story Generator</h3>
+        <!-- Form with input, select, and button -->
+        <form class="" id="emojisForm" action="/getAnswer" method="post">
+            <label for="emojisInput">Enter 5 emojis:</label>
+            <input type="text" id="emojisInput" name="emojisInput" required>
+            <label for="choice">Select a mood:</label>
+            <select name="choice" id="choice">
+                <option value="happy" selected>Happy</option>
+                <option value="scary">Scary</option>
+                <option value="kitty">Kitty</option>
+            </select>
+            <button type="submit">Get Answer</button>
+        </form>
+        
+        <!-- Response area to display image and story -->
+        <div class="response" id="responseArea">
+            <img src="" alt="" id="generatedImage" style="">
+            <p id="loadingText" style="display: none;">Loading...</p>
+            <p id="generatedStory"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle form submission and update the response area -->
+    <script>
+        document.getElementById('emojisForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+        
+            const emojisInput = document.getElementById('emojisInput').value;
+            const choice = document.getElementById('choice').value;
+        
+            // Show loading text
+            document.getElementById('loadingText').style.display = 'block';
+            document.getElementById('loadingText').classList.add('blink'); // Add blinking class
+        
+            const response = await fetch('/getAnswer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `emojisInput=${emojisInput}&choice=${choice}`,
+            });
+        
+            const result = await response.json(); // Parse JSON response
+        
+            console.log('Result:', result);
+        
+            // Hide loading text
+            document.getElementById('loadingText').style.display = 'none';
+            document.getElementById('loadingText').classList.remove('blink'); // Remove blinking class
+            
+            // Set the image source in the HTML
+            const generatedImage = document.getElementById('generatedImage');
+            generatedImage.src = result.imageUrl;
+            generatedImage.alt = "Generated Image";
+
+            // Set the story in the HTML with typing animation
+            const generatedStoryElement = document.getElementById('generatedStory');
+            generatedStoryElement.innerHTML = ''; // Clear existing content
+            for (let i = 0; i < result.story.length; i++) {
+                // Create a span for each character with animation delay
+                const span = document.createElement('span');
+                span.innerHTML = result.story[i];
+                span.style.animationDelay = `${i * 0.02}s`; // Adjust the delay for the typing effect
+                generatedStoryElement.appendChild(span);
+            }
+        
+            // Additional console logs for troubleshooting
+            console.log('Generated Story:', result.story);
+            console.log('Generated Image URL:', result.imageUrl);
+        });
+        
+    </script>
+</body>
+</html>

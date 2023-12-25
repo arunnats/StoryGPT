@@ -1,0 +1,89 @@
+body{
+    background-color: #386C5F;
+}
+
+h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blanchedalmond;
+}
+
+img{
+    height: 30px;
+}
+
+.headertext{
+    color: aliceblue;
+    font-family: ;
+    font-size: medium;
+}
+
+.response {
+    width: 50%;
+    min-height: 500px;
+    max-height: fit-content;
+    background-color: blanchedalmond;
+    border-radius: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.response img {
+    border-radius: 2px;
+    width: 100%; /* Make the image take 100% of the container width */
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    padding-top: 25px;
+}
+
+#generatedStory {
+    font-size: 16px;
+    text-align: justify;
+    padding: 20px;
+    margin: 0; /* Remove default margin */
+}
+
+select {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+select:focus {
+    outline: none;
+}
+
+.container-inputs,
+.container-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#generatedStory span {
+    opacity: 0;
+    animation: fadeIn 0.05s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
