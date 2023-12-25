@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-const openai = new OpenAI({ apiKey: "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" });
+const openai = new OpenAI({ apiKey: "<key>" });
 
 app.set('views', path.join(__dirname, 'public', 'views'));
 app.set('view engine', 'ejs');
@@ -45,7 +45,7 @@ app.post('/getAnswer', async (req, res) => {
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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',
+                'Authorization': 'Bearer <key>',
             },
         });
 
