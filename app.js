@@ -43,7 +43,7 @@ app.post('/getAnswer', async (req, res) => {
             ],
             model: "gpt-3.5-turbo",
         }, {
-            headers: {
+                ers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer <key>',
             },
