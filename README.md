@@ -1,9 +1,15 @@
 # StoryGPT 
-###Emoji Story Generator
+### Emoji Story Generator
 
 ### [Preview](https://helpful-emitter-409307.el.r.appspot.com/)
 
+<img width="960" alt="Screenshot 2023-12-27 184035" src="https://github.com/arunnats/StoryGPT/assets/118368673/4f808f41-70fb-4fcc-9ed1-d6033bd2877b">
+<img width="960" alt="Screenshot 2023-12-27 184046" src="https://github.com/arunnats/StoryGPT/assets/118368673/03e61137-383d-4a2c-98c8-01e10ee3bb8e">
+<img width="960" alt="Screenshot 2023-12-27 184059" src="https://github.com/arunnats/StoryGPT/assets/118368673/fb18da77-496a-47b9-a982-e45fc560b633">
+
 Desktop Site
+
+<img width="181" alt="Screenshot 2023-12-27 184111" src="https://github.com/arunnats/StoryGPT/assets/118368673/491751f9-ffa5-4994-bafa-8ac15e754ea2">
 
 Mobile Site
 
