@@ -1,7 +1,7 @@
 # StoryGPT 
 ### Emoji Story Generator
 
-### [Preview](https://helpful-emitter-409307.el.r.appspot.com/)
+### [Preview](http://storygpt.arunnats.com/)
 
 <img width="960" alt="Screenshot 2023-12-27 184035" src="https://github.com/arunnats/StoryGPT/assets/118368673/4f808f41-70fb-4fcc-9ed1-d6033bd2877b">
 <img width="960" alt="Screenshot 2023-12-27 184046" src="https://github.com/arunnats/StoryGPT/assets/118368673/03e61137-383d-4a2c-98c8-01e10ee3bb8e">
